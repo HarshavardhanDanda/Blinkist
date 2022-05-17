@@ -1,25 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import MyLibrary from "./pages/MyLibrary";
+import EntrepreneurshipPage from './pages/Entrepreneurship'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import BookDetailsPage from "./pages/BookDetails";
+import { makeStyles } from "@mui/styles";
+import LoginButton from './components/auth0/Login';
+import LogoutButton from './components/auth0/Logout';
+import {useAuth0} from '@auth0/auth0-react';
+import React from 'react'
+
+let useStyles = makeStyles({
+  main: {
+
+  }
+})
 
 function App() {
+  let styles = useStyles()
+  const {user, isAuthenticated} = useAuth0();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+     <div className={styles.main}>
+        <LoginButton />
+        <LogoutButton />
+        
+        <React.Fragment>
+        {isAuthenticated &&
+        <Router>
+          <Routes>
+            <Route path="/" element={<MyLibrary />} />
+            <Route path="/entrepreneurship" element={<EntrepreneurshipPage />} />
+            <Route path="/bookdetails" element={<BookDetailsPage /> } />
+          </Routes>
+        </Router>}
+        </React.Fragment>
+
+      </div>
   );
 }
 
