@@ -1,4 +1,4 @@
-import { makeStyles } from "@mui/styles";
+import { makeStyles,styled } from "@mui/styles";
 
 export interface MyLibraryProps {
     header: React.ReactNode;
@@ -14,13 +14,18 @@ let useStyles = makeStyles({
     }
 })
 
+let Correction= styled("div")({
+    paddingLeft:165,
+ })
+    
+
 export const MyLibrary = (props: MyLibraryProps) => {
     let {header, footer, body} = props
     let styles = useStyles()
     return (
         <div className={styles.test}>
             {header}
-            {body}
+            <Correction>{body}</Correction>
             {footer}
         </div>
     )

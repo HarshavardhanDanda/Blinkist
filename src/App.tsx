@@ -21,7 +21,7 @@ function App() {
     
      <div className={styles.main}>
         <LoginButton />
-        <LogoutButton />
+        
         
         <React.Fragment>
         {isAuthenticated &&

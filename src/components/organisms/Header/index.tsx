@@ -8,11 +8,12 @@ import { Dropdown } from "../../molecules/Dropdown";
 import { ExtendedNav } from "../ExtendedNav";
 import theme from '../../themes/theme'
 import {useNavigate} from 'react-router-dom'
+import LogoutButton from "../../auth0/Logout";
 
 const MainContainer = styled("div")({
   width: "100%",
   height: 86,
-  backgroundColor: "white",
+  backgroundcolor: "white",
   display: "flex",
   flexDirection: "row",
   gap: 40,
@@ -82,6 +83,12 @@ export const HeaderComponent = () => {
     }
   };
 
+  let [account, setAccount] =useState(false);
+
+  const expandAccountDropdown = () => {
+    account ? setAccount(false) : setAccount(true);
+  };
+
   let styles = useStyles();
 
   let navigate = useNavigate()
@@ -105,9 +112,11 @@ export const HeaderComponent = () => {
           <Typography variant="body1" className={styles.myLibrary} onClick={homePage}>
             My Library
           </Typography>
-          <Dropdown title={"Account"} className={styles.account}></Dropdown>
+          <Dropdown title={"Account"} className={styles.account} onClick={expandAccountDropdown}></Dropdown>
+          <div>{account ? <LogoutButton /> : null}</div>
         </MainContainer>
         {explore ? <ExtendedNav /> : null}
+        
       </ThemeProvider>
     </>
   );

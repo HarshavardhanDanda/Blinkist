@@ -5,23 +5,27 @@ import { styled, makeStyles } from "@mui/styles";
 
 let useStyles = makeStyles({
   logout:{
-    top:16,
-    left:16
+    
+    position: "absolute",
+    left:1100,
+    top:70,
+    zIndex:9
+    
   }
 })
+  
 
 const LogoutButton = () => {
   const { logout,isAuthenticated } = useAuth0();
-  const styles=useStyles;
+  const styles=useStyles()
 
   return (
     <React.Fragment>
-      <div style={{"marginTop":"30px","marginLeft":"30px"}}>
     {isAuthenticated && 
-    <Button onClick={() => logout()} variant="contained" color="error" className="styles.logout">
+    <Button onClick={() => logout()} variant="contained" color="error" className={styles.logout}>
       Log Out
     </Button>
-    }</div>
+    }
     </React.Fragment>
   )
 };

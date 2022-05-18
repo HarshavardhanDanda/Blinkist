@@ -9,7 +9,6 @@ import api from "../../../api/api";
 
 let MainContainer = styled("div")({
   width: 912,
-  left:250,
   
 });
 
@@ -29,14 +28,20 @@ let CardStyling = styled("div")({
 let useStyles = makeStyles({
   containerStyling: {
     borderBottom: "2px solid #F1F6F4",
+    
   },
   tabStyling: {
     width: 304,
     alignSelf: "flex-start",
+    
   },
   selectedTab: {
     color: "#22C870 !important",
+    
   },
+  // cardStyling:{
+  //   left:250,
+  // }
 });
 
 export const Tabs = () => {
@@ -95,6 +100,7 @@ export const Tabs = () => {
                 TabIndicatorProps={{
                   style: {
                     backgroundColor: "#2CE080",
+
                   },
                 }}
               >
@@ -126,7 +132,7 @@ export const Tabs = () => {
                 />
               </TabList>
             </Container>
-            <TabPanel value="1">
+            <TabPanel value="1" >
               <CardStyling>
                 {books
                   .filter((item) => (!item.status.isFinished && !item.status.isTrending && !item.status.isFeatured && !item.status.justAdded))
