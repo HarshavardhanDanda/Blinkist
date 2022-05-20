@@ -8,8 +8,11 @@ import { Icons } from "../../atoms/Icons/icons";
 
 let MainContainer = styled("div")({
   width: "100%",
-  height: 370,
+  height: 440,
   backgroundColor: "#F1F6F4",
+  position:"relative",
+  top:70
+  
 
 });
 

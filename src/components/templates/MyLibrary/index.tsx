@@ -1,4 +1,5 @@
 import { makeStyles,styled } from "@mui/styles";
+import React from "react";
 
 export interface MyLibraryProps {
     header: React.ReactNode;
@@ -9,23 +10,24 @@ export interface MyLibraryProps {
 let useStyles = makeStyles({
     test: {
         display: 'flex',
+        width:"100%",
+        height: "auto",
+
+        overflow: "hidden",
         flexDirection: 'column',
         alignItems: 'center'
-    }
-})
-
-let Correction= styled("div")({
-    paddingLeft:165,
- })
+    },
     
+})
+ 
 
 export const MyLibrary = (props: MyLibraryProps) => {
     let {header, footer, body} = props
     let styles = useStyles()
     return (
         <div className={styles.test}>
-            {header}
-            <Correction>{body}</Correction>
+            {header}<br></br>
+            {body}
             {footer}
         </div>
     )

@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Dialog, Typography } from "@mui/material";
 import { makeStyles, styled } from "@mui/styles";
 import ExtendedNavData from "../../../data/ExtendedNavData";
 import { IconAndText } from "../../molecules/IconAndText";
@@ -7,17 +7,20 @@ import { useNavigate } from "react-router-dom";
 const MainContainer = styled("div")({
   width: "100%",
   height: "100%",
-  zIndex: 1
+  zIndex: 10
 });
+
+
 
 let useStyles = makeStyles({
     mainDiv: {
         boxSizing: 'border-box',
         minWidth: "100%",
         height: 398,
-        zIndex: 5,
+        zIndex: 8,
         position: 'absolute',
-        backgroundColor: "#F1F6F4"
+        backgroundColor: "#F1F6F4",
+        top:70
     },
     firstBox: {
         display: 'flex',
@@ -74,6 +77,7 @@ export const ExtendedNav = () => {
   }
 
   return (
+    
     <MainContainer>
       <div className={styles.mainDiv}>
         <Box className={styles.firstBox}>
@@ -92,5 +96,6 @@ export const ExtendedNav = () => {
         </Box>
       </div>
     </MainContainer>
+    
   );
 };

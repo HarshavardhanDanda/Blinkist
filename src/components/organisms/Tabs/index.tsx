@@ -9,11 +9,15 @@ import api from "../../../api/api";
 
 let MainContainer = styled("div")({
   width: 912,
+  position:"relative",
+  top:70
   
 });
 
 let TabsContainer = styled("div")({
   width: "100%",
+  position:"relative"
+
 });
 
 let CardStyling = styled("div")({

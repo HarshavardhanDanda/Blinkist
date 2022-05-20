@@ -8,6 +8,7 @@ import LogoutButton from './components/auth0/Logout';
 import {useAuth0} from '@auth0/auth0-react';
 import React from 'react'
 
+
 let useStyles = makeStyles({
   main: {
 
@@ -19,6 +20,7 @@ function App() {
   const {user, isAuthenticated} = useAuth0();
   return (
     
+        
      <div className={styles.main}>
         <LoginButton />
         

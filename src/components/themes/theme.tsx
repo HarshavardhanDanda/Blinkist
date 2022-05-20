@@ -53,6 +53,9 @@ const theme = createTheme({
       lineHeight: "22px",
       color: "#6D787E",
     },
+    h6:{
+      fontSize:"18px"
+    }
   },
   components: {
     MuiTab: {

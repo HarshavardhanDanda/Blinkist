@@ -94,7 +94,7 @@ const Categories = (props: CardProps) => {
 
   return (
     <>
-      <Typography variant="h3" className={styles.title}>{title}</Typography>
+      <Typography variant="h3" className={styles.title}>{title}</Typography><br></br><br></br>
       <MainContainer>
         {showData.map((book, key) => {
           return (

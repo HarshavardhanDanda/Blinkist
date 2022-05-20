@@ -196,8 +196,8 @@ export const Card = (props: CardProps) => {
 
   
 
-  let showDetailsPage = () => {
-    navigate('/bookdetails')
+  let showDetailsPage = (num:number) => {
+    navigate(`/bookdetails/?id=${num}`)
   }
 
   return (
@@ -211,7 +211,7 @@ export const Card = (props: CardProps) => {
             variant="subtitle1"
             sx={{ color: "#03314B" }}
             className={styles.title}
-            onClick={showDetailsPage}
+            onClick={() => showDetailsPage(value)}
           >
             {title}
           </Typography>

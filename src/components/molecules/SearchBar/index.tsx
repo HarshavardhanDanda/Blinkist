@@ -6,19 +6,20 @@ import theme from "../../themes/theme";
 
 const useStyles = makeStyles({
   inputElement: {
-    fontSize: "16px",
+    fontSize: "24px",
     border: "none",
-    width: 180,
+    width: 300,
     height: 24,
     fontFamily: 'Cera Pro',
     marginLeft: "32px",
     "&:focus": {
       outline: "none",
     },
+    marginBottom:"30px"
   },
   boxElement: {
     width: 598,
-    height: 28,
+    height: 35,
     backgroundColor: "",
     borderBottom: "1.5px solid #BAC9CF",
     display: "flex",

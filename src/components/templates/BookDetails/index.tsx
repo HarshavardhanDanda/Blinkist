@@ -20,7 +20,7 @@ export const BookDetails = (props: BookDetailsProps) => {
   let { header, footer, body } = props;
   return (
     <>
-      {header}
+      {header}<br></br>
       <BodyComponent>{body}</BodyComponent>
       <FooterComponent>{footer}</FooterComponent>
     </>

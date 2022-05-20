@@ -7,7 +7,7 @@ let useStyles = makeStyles({
   logout:{
     
     position: "absolute",
-    left:1100,
+    left:1000,
     top:70,
     zIndex:9
     
@@ -16,7 +16,7 @@ let useStyles = makeStyles({
   
 
 const LogoutButton = () => {
-  const { logout,isAuthenticated } = useAuth0();
+  const { logout,isAuthenticated,user } = useAuth0();
   const styles=useStyles()
 
   return (

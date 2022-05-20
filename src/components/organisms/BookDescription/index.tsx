@@ -13,6 +13,8 @@ import { BookInfo } from "../Card";
 import { useEffect, useState } from "react";
 import api from "../../../api/api";
 import { useNavigate } from "react-router-dom";
+import { Library } from "../../../data/Library";
+
 
 let MainContainer = styled("div")({
   display: "flex",
@@ -82,8 +84,12 @@ export const BookDescription = () => {
     }
   });
 
+    let uri=window.location.search
+    let ID=parseInt(uri.slice(4))
+
   let getBookInfo = async () => {
-    const response = await api.get(`/library/${10}`)
+
+    const response = await api.get(`/library/${ID}`)
     const data = response.data
     console.log(JSON.stringify(data))
     setBookInfo(data)
@@ -100,14 +106,31 @@ export const BookDescription = () => {
     console.log(JSON.stringify(bookInfo))
 
     await api.put(`/library/${num}`, bookInfo)
-
+    
     navigate('/')
   }
 
-  let handleRead = async () => {
+  let handleRead = async (num: number) => {
+    bookInfo.status.isFinished=false
+    bookInfo.status.isTrending=false
+    bookInfo.status.justAdded=false
+    bookInfo.status.isFeatured=false
+
+    await api.put(`/library/${num}`, bookInfo)
+
     navigate('/')
   }
+  let sendToKindle = async (num: number) => {
+    bookInfo.status.isFinished=false
+    bookInfo.status.isTrending=true
+    bookInfo.status.justAdded=false
+    bookInfo.status.isFeatured=false
 
+    await api.put(`/library/${num}`, bookInfo)
+
+    navigate('/')
+  }
+ 
   return (
     <ThemeProvider theme={theme}>
       <MainContainer>
@@ -119,20 +142,20 @@ export const BookDescription = () => {
           </KeyIdeasContainer>
           <BookDetailsContainer>
             <Typography variant="h1">
-              {Constants.bookDescription.title}
+              {bookInfo.title}
             </Typography>
             <Typography sx={{ color: "#03314B", fontSize: 20 }}>
               {Constants.bookDescription.description}
             </Typography>
             <Typography variant="body1">
-              {Constants.bookDescription.author}
+              {bookInfo.author}
             </Typography>
           </BookDetailsContainer>
           <IconTextContainer>
             <IconAndText
               variant="caption"
               iconSource={<Time />}
-              title={Constants.bookDescription.timeToRead}
+              title={bookInfo.timeToRead}
             />
           </IconTextContainer>
           <ButtonsContainer>
@@ -145,7 +168,8 @@ export const BookDescription = () => {
                 textTransform: "none",
                 border: "1px solid #042330",
               }}
-              onClick={() => handleRead()}
+              onClick={() => handleRead(ID)}
+              disabled={(bookInfo.status.isFinished)||(bookInfo.status.isFeatured || bookInfo.status.isTrending || bookInfo.status.justAdded) ? false : true}
             >
               Read now
             </ButtonComponent>
@@ -158,7 +182,8 @@ export const BookDescription = () => {
                 textTransform: "none",
                 borderRadius: 4,
               }}
-              onClick={() => updateFinish(10)}
+              onClick={() => updateFinish(ID)}
+              disabled={(bookInfo.status.isFinished)||(bookInfo.status.isFeatured ||bookInfo.status.isTrending || bookInfo.status.justAdded) ? true : false}
             >
               Finished reading
             </ButtonComponent>
@@ -172,6 +197,7 @@ export const BookDescription = () => {
                 height: 44,
               }}
               endIcon={<Side />}
+              onClick={() => sendToKindle(ID)}
             >
               Send to Kindle
             </ButtonComponent>
@@ -181,7 +207,7 @@ export const BookDescription = () => {
           </TabsContainer>
         </LeftContainer>
         <RightContainer>
-          <img src={BeyondEntrepreneur} />
+          <img src={bookInfo.image} />
         </RightContainer>
       </MainContainer>
     </ThemeProvider>

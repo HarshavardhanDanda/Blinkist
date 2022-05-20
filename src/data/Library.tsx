@@ -10,7 +10,7 @@ import Book9 from "../images/dropshipping.svg";
 import Book10 from "../images/beyondEntrepreneurship.svg";
 import Book11 from "../images/beingBoss.svg";
 
-const Library = [
+export const Library = [
   {
     id: 1,
     title: "Bring Your Human to Work",

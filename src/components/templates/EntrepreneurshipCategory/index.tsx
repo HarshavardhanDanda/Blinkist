@@ -9,6 +9,13 @@ export interface EntrepreneurshipProps {
     featuredBlinks: React.ReactNode;
     banner: React.ReactNode;
 }
+let TotalContainer= styled("div")({
+    
+    // width:"100%",
+    // height:"100%",
+    
+    
+})
 
 let BodyContainer = styled("div")({
     width: 912,
@@ -54,16 +61,19 @@ let Footer = styled("div") ({
     top: 452
 })
 
+
+
 export const Entrepreneurship = (props: EntrepreneurshipProps) => {
     let {header, footer, searchBar, trendingBlinks, justAddedBlinks, banner, featuredBlinks} = props
     return (
-        <>
-            {header}
+        <TotalContainer>
+            {header}<br></br>
             <BodyContainer>
                 {banner}
                 <SearchContainer>
                 {searchBar}
                 </SearchContainer>
+                
                 <TrendingBlinks>
                 {trendingBlinks}
                 </TrendingBlinks>
@@ -73,10 +83,11 @@ export const Entrepreneurship = (props: EntrepreneurshipProps) => {
                 <FeaturedBlinks>
                 {featuredBlinks}
                 </FeaturedBlinks>
+                
             </BodyContainer>
             <Footer>
             {footer}
             </Footer>
-        </>
+        </TotalContainer>
     )
 }

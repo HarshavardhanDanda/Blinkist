@@ -33,6 +33,7 @@ export interface ButtonIconProps {
     onMouseLeave?: () => void;
     onClick?: () => void;
     className?: string;
+    disabled?:boolean;
 }
 
 let useStyles = makeStyles({
@@ -43,7 +44,7 @@ let useStyles = makeStyles({
   })
 
 export const ButtonComponent = (props: any) => {
-    let {startIcon, endIcon, variant, style, children, onMouseEnter, onMouseLeave, onClick, className} = props
+    let {startIcon, endIcon, variant, style, children, onMouseEnter, onMouseLeave, onClick, className,disabled} = props
     const styles=useStyles;
     return (
         <Button 
@@ -54,7 +55,8 @@ export const ButtonComponent = (props: any) => {
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         onClick={onClick}
-        className={className}>
+        className={className}
+        disabled={disabled}>
             {children}
         </Button>
     )

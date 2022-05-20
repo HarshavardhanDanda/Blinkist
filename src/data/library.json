@@ -22,7 +22,7 @@
       "numberOfReads": "",
       "image": "../images/employee.svg",
       "status": {
-        "isFinished": false,
+        "isFinished": true,
         "isTrending": false,
         "justAdded": false,
         "isFeatured": false
@@ -50,7 +50,7 @@
       "numberOfReads": "16k reads",
       "image": "../images/theFateOfFood.svg",
       "status": {
-        "isFinished": true,
+        "isFinished": false,
         "isTrending": false,
         "justAdded": false,
         "isFeatured": false
@@ -65,7 +65,7 @@
       "image": "../images/doesntHurtToAsk.svg",
       "status": {
         "isFinished": false,
-        "isTrending": false,
+        "isTrending": true,
         "justAdded": false,
         "isFeatured": false
       }
@@ -79,7 +79,7 @@
       "image": "../images/lovingYourBusiness.svg",
       "status": {
         "isFinished": false,
-        "isTrending": true,
+        "isTrending": false,
         "justAdded": false,
         "isFeatured": false
       }
@@ -148,7 +148,7 @@
       "numberOfReads": "",
       "image": "../images/beingBoss.svg",
       "status": {
-        "isFinished": false,
+        "isFinished": true,
         "isTrending": false,
         "justAdded": false,
         "isFeatured": false
